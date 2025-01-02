@@ -5,7 +5,7 @@ export const data = [
       option2: "Omen",
       option3: "Phoenix",
       option4: "Sage",
-      ans: 1, // Correct answer: Viper
+      ans: 1, 
     },
     {
       question: "What is the name of Phoenix's ultimate ability?",
@@ -13,7 +13,7 @@ export const data = [
       option2: "Hot Hands",
       option3: "Blaze",
       option4: "Radiant Flame",
-      ans: 1, // Correct answer: Run It Back
+      ans: 1, 
     },
     {
       question: "Which agent's ultimate ability is 'Resurrection'?",
@@ -21,7 +21,7 @@ export const data = [
       option2: "Jett",
       option3: "Breach",
       option4: "Reyna",
-      ans: 1, // Correct answer: Sage
+      ans: 1, 
     },
     {
       question: "Which agent has the ultimate ability 'X-Ray Vision'?",
@@ -29,7 +29,7 @@ export const data = [
       option2: "Brimstone",
       option3: "Omen",
       option4: "Killjoy",
-      ans: 3, // Correct answer: Omen
+      ans: 3, 
     },
     {
       question: "What does the ultimate ability 'Run It Back' do?",
@@ -37,7 +37,7 @@ export const data = [
       option2: "Summons a wall of fire",
       option3: "Heals Phoenix instantly",
       option4: "Increases Phoenix's movement speed",
-      ans: 1, // Correct answer: Allows Phoenix to teleport to his original position after death
+      ans: 1, 
     },
     {
       question: "Which agent's ultimate is called 'Hunter's Fury'?",
@@ -45,7 +45,7 @@ export const data = [
       option2: "Omen",
       option3: "Sova",
       option4: "Raze",
-      ans: 3, // Correct answer: Sova
+      ans: 3, 
     },
     {
       question: "What is Killjoy's ultimate ability called?",
@@ -53,7 +53,7 @@ export const data = [
       option2: "Lockdown X",
       option3: "Nanoswarm",
       option4: "Lockdown Zone",
-      ans: 1, // Correct answer: Lockdown
+      ans: 1,
     },
     {
       question: "Which agent's ultimate is 'Vigilant'?",
@@ -61,7 +61,7 @@ export const data = [
       option2: "Brimstone",
       option3: "Raze",
       option4: "Omen",
-      ans: 4, // Correct answer: Omen
+      ans: 4, 
     },
     {
       question: "Which agent uses the ultimate ability 'Nightfall'?",
@@ -69,7 +69,7 @@ export const data = [
       option2: "Sova",
       option3: "Skye",
       option4: "KAY/O",
-      ans: 4, // Correct answer: KAY/O
+      ans: 4, 
     },
     {
       question: "What is the name of Sage’s ultimate ability?",
@@ -77,7 +77,7 @@ export const data = [
       option2: "Healing Orb",
       option3: "Barrier Orb",
       option4: "Resurrect",
-      ans: 1, // Correct answer: Resurrection
+      ans: 1, 
     },
   ];
   

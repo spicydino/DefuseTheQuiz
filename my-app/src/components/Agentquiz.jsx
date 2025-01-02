@@ -17,7 +17,7 @@ const Agentquiz = () => {
   const option4 = useRef(null);
   const optionArray = [option1, option2, option3, option4];
 
-  // Timer Logic
+  
   useEffect(() => {
     if (!lock && timer > 0) {
       const countdown = setTimeout(() => setTimer((prev) => prev - 1), 1000);

@@ -10,6 +10,7 @@ import Choice from './components/Choice';
 import Agentquiz from './components/Agentquiz';
 import Mapquiz from './components/Mapquiz';
 import Triviaquiz from './components/Triviaquiz';
+import Signup from './components/Signup';
 
 const heroData = [
   { text1: "Test Your Valorant Knowledge", text2: "Think you're a true Agent? Take this quiz" },
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/Agentquiz" element={<Agentquiz />} />
         <Route path="/Mapquiz" element={<Mapquiz />} />
         <Route path="/Triviaquiz" element={<Triviaquiz/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
     </Router>
   );
