@@ -6,16 +6,106 @@
     color: #ffffff; 
     padding: 20px 30px;
     border-radius: 10px; 
-}
-
-.nav-logo {
+  }
+  
+  .nav-logo {
     font-family: 'Orbitron', sans-serif; 
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 800;
     color: #ff3b30;
     text-transform: uppercase;  
     letter-spacing: 1px;
-}
+    
+    
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;  
+  }
+  
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 1px 0px 0px rgba(255, 0, 0, 0.5), -1px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(0px);
+    }
+    10% {
+      text-shadow: -1px 0px 0px rgba(255, 0, 0, 0.5), 1px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(-2px);
+    }
+    20% {
+      text-shadow: 2px 0px 0px rgba(255, 0, 0, 0.5), -2px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(2px);
+    }
+    30% {
+      text-shadow: -2px 0px 0px rgba(255, 0, 0, 0.5), 2px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(-2px);
+    }
+    40% {
+      text-shadow: 1px 0px 0px rgba(255, 0, 0, 0.5), -1px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(0px);
+    }
+    50% {
+      text-shadow: -1px 0px 0px rgba(255, 0, 0, 0.5), 1px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(-2px);
+    }
+    60% {
+      text-shadow: 2px 0px 0px rgba(255, 0, 0, 0.5), -2px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(2px);
+    }
+    70% {
+      text-shadow: -2px 0px 0px rgba(255, 0, 0, 0.5), 2px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(-2px);
+    }
+    80% {
+      text-shadow: 1px 0px 0px rgba(255, 0, 0, 0.5), -1px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(0px);
+    }
+    90% {
+      text-shadow: -1px 0px 0px rgba(255, 0, 0, 0.5), 1px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(-2px);
+    }
+    100% {
+      text-shadow: 2px 0px 0px rgba(255, 0, 0, 0.5), -2px 0px 0px rgba(0, 255, 255, 0.5);
+      transform: translateX(2px);
+    }
+  }
+  
+  
+  .nav-logo:before,
+  .nav-logo:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ff3b30;
+    z-index: -1;
+    animation: glitch-anim 1s infinite;
+    opacity: 0.8;
+  }
+  
+  @keyframes glitch-anim {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translate(-5px, 5px);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate(5px, -5px);
+      opacity: 0.6;
+    }
+    75% {
+      transform: translate(-5px, -5px);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(5px, 5px);
+      opacity: 0.8;
+    }
+  }
+  
 
 .nav-menu {
     display: flex;
@@ -33,15 +123,15 @@
     transition: color 0.3s ease;
 }
 
-/* Remove the default link styling (blue color) */
+
 .nav-menu li a {
-    text-decoration: none;  /* Remove underline */
-    color: inherit;  /* Inherit color from parent element */
+    text-decoration: none;  
+    color: inherit;  
 }
 
-/* Hover effect for links */
+
 .nav-menu li a:hover {
-    color: #ff3b30;  /* Change color on hover */
+    color: #ff3b30;  
 }
 
 .nav-menu li:hover {
@@ -61,5 +151,5 @@
 }
 
 .nav-contact:hover {
-    background: #a23731; 
+    background: #441411; 
 }

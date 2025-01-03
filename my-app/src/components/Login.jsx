@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from '../Context/UserContext'
 import '../styles/Login.css';
 
 const Login = () => {
@@ -7,7 +8,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [passwordValid, setPasswordValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [loginSuccessful, setLoginSuccessful] = useState(false); // New state for success message
+  const [loginSuccessful, setLoginSuccessful] = useState(false); 
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -26,6 +28,7 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
+        setUser({ username: data.user.username, email: data.user.email });
         setLoginSuccessful(true); 
         setTimeout(() => {
           navigate('/'); 

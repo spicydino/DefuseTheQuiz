@@ -13,9 +13,11 @@ const Hero = ({heroData,setHeroCount,heroCount,setPlayStatus,playStatus}) => {
         </div>
         <div className="hero-explore">
           <p>Take the quiz</p>  
+          <div className="imgdance">
           <Link to="/Choice">
           <img src={arrow_btn} alt="Navigate to Target Page" style={{ cursor: 'pointer' }} />
           </Link>
+          </div>
         </div>
         <div className="hero-dot-play">
           <ul className="hero-dots">
