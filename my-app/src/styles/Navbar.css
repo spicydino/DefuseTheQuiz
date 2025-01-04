@@ -105,6 +105,18 @@
       opacity: 0.8;
     }
   }
+
+  @keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); 
+    }
+    100% {
+      transform: translateY(0); 
+    }
+  }
   
 
 .nav-menu {
@@ -126,7 +138,8 @@
 
 .nav-menu li a {
     text-decoration: none;  
-    color: inherit;  
+    color: inherit; 
+    
 }
 
 
@@ -148,6 +161,7 @@
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
+    animation: jump 4s infinite; 
 }
 
 .nav-contact:hover {
