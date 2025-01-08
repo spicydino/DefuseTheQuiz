@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import '../styles/Agentquiz.css';
-import { data as MapData } from '../assets/MapData';
 import { Link } from 'react-router-dom';
+import resultSong from '../assets/victory.mp3'; 
 
 const Mapquiz = () => {
   const [index, setIndex] = useState(0);
-  const [question, setQuestion] = useState(MapData[index]);
+  const [question, setQuestion] = useState(null);  // Initialize question as null
   const [lock, setLock] = useState(false);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(false);
@@ -17,6 +17,18 @@ const Mapquiz = () => {
   const option4 = useRef(null);
   const optionArray = [option1, option2, option3, option4];
 
+  const audioRef = useRef(new Audio(resultSong));
+
+  
+  useEffect(() => {
+    fetch('http://localhost:3000/Mapquiz')
+      .then((response) => response.json())
+      .then((data) => {
+        setQuestion(data);  
+      })
+      .catch((err) => console.log('fetch failed', err));
+  }, []);
+
   
   useEffect(() => {
     if (!lock && timer > 0) {
@@ -27,19 +39,26 @@ const Mapquiz = () => {
     }
   }, [timer, lock]);
 
+  
+  useEffect(() => {
+    if (result) {
+      audioRef.current.play(); 
+    }
+  }, [result]);
+
   const handleTimeout = () => {
     setLock(true);
-    optionArray[question.ans - 1].current.classList.add('correct');
+    optionArray[question[index].ans - 1].current.classList.add('correct');
   };
 
   const checkAns = (e, ans) => {
     if (!lock) {
-      if (question.ans === ans) {
+      if (question[index].ans === ans) {
         e.target.classList.add('correct');
         setScore((prev) => prev + 1);
       } else {
         e.target.classList.add('wrong');
-        optionArray[question.ans - 1].current.classList.add('correct');
+        optionArray[question[index].ans - 1].current.classList.add('correct');
       }
       setLock(true);
     }
@@ -47,11 +66,10 @@ const Mapquiz = () => {
 
   const next = () => {
     if (lock) {
-      if (index === MapData.length - 1) {
+      if (index === question.length - 1) {
         setResult(true);
       } else {
         setIndex((prev) => prev + 1);
-        setQuestion(MapData[index + 1]);
         setLock(false);
         setTimer(30);
         optionArray.forEach((option) => {
@@ -62,14 +80,15 @@ const Mapquiz = () => {
     }
   };
 
+  if (!question) return <div>Loading...</div>;  
   return (
     <div className='container'>
-      <h1>Guess the Agent</h1>
+      <h1>Guess the Map</h1>
       <hr />
       {result ? (
         <>
           <h2>
-            You scored {score} out of {MapData.length}
+            You scored {score} out of {question.length}
             <br /> Come back tomorrow to challenge us again!
           </h2>
           <Link to='/'>
@@ -83,25 +102,25 @@ const Mapquiz = () => {
             <span className='timer-text'>{timer}s</span>
           </div>
           <h2>
-            {index + 1}. {question.question}
+            {index + 1}. {question[index].question}
           </h2>
           <ul>
             <li ref={option1} onClick={(e) => checkAns(e, 1)}>
-              {question.option1}
+              {question[index].options[0]}
             </li>
             <li ref={option2} onClick={(e) => checkAns(e, 2)}>
-              {question.option2}
+              {question[index].options[1]}
             </li>
             <li ref={option3} onClick={(e) => checkAns(e, 3)}>
-              {question.option3}
+              {question[index].options[2]}
             </li>
             <li ref={option4} onClick={(e) => checkAns(e, 4)}>
-              {question.option4}
+              {question[index].options[3]}
             </li>
           </ul>
           <button onClick={next}>Next</button>
           <div className='index'>
-            {index + 1} of {MapData.length}
+            {index + 1} of {question.length}
           </div>
         </>
       )}

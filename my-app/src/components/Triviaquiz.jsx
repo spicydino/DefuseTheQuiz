@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import '../styles/Agentquiz.css';
 import { data as TriviaData } from '../assets/TriviaData';
 import { Link } from 'react-router-dom';
+import resultSong from '../assets/victory.mp3'; 
 
 const Triviaquiz = () => {
   const [index, setIndex] = useState(0);
@@ -17,7 +18,8 @@ const Triviaquiz = () => {
   const option4 = useRef(null);
   const optionArray = [option1, option2, option3, option4];
 
-  
+  const audioRef = useRef(new Audio(resultSong)); 
+
   useEffect(() => {
     if (!lock && timer > 0) {
       const countdown = setTimeout(() => setTimer((prev) => prev - 1), 1000);
@@ -26,6 +28,12 @@ const Triviaquiz = () => {
       handleTimeout();
     }
   }, [timer, lock]);
+
+  useEffect(() => {
+    if (result) {
+      audioRef.current.play(); 
+    }
+  }, [result]);
 
   const handleTimeout = () => {
     setLock(true);
@@ -64,7 +72,7 @@ const Triviaquiz = () => {
 
   return (
     <div className='container'>
-      <h1>Guess the Agent</h1>
+      <h1>Trivia Quiz</h1>
       <hr />
       {result ? (
         <>

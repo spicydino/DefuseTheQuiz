@@ -14,6 +14,9 @@ import Signup from './components/Signup';
 
 import { UserProvider } from './Context/UserContext'; 
 import Leader from './components/Leader';
+import Profile from './components/Profile';
+import ChangeChoice from './components/ChangeChoice';
+import Edit1 from './components/edit1';
 
 const heroData = [
   { text1: "Test Your Valorant Knowledge", text2: "Think you're a true Agent? Take this quiz" },
@@ -23,7 +26,7 @@ const heroData = [
 
 const App = () => {
   const [heroCount, setHeroCount] = useState(0);
-  const [playStatus, setPlayStatus] = useState(false);
+  const [playStatus, setPlayStatus] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,8 +62,10 @@ const App = () => {
           <Route path="/Triviaquiz" element={<Triviaquiz />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/leaderboard" element={<Leader/>} />
-
-        </Routes>
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/changechoice" element={<ChangeChoice/>} />
+          <Route path="/edit1" element={<Edit1/>} />
+        </Routes> 
       </Router>
     </UserProvider>
   );
